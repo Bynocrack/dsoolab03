@@ -16,7 +16,8 @@ class Docente {
 
     public boolean setNombres (String nombres) {
         for (int i = 0; i < nombres.length(); i++) {
-            if(!(nombres.charAt(i)>='A' && nombres.charAt(i)<='Z') || !(nombres.charAt(i)>='a' && nombres.charAt(i)<='z') || nombres.charAt(i) == ' '){
+            if((nombres.charAt(i)>='A' && nombres.charAt(i)<='Z') || (nombres.charAt(i)>='a' && nombres.charAt(i)<='z')){
+                System.out.print(nombres);
                 return false;
             }
         }        
@@ -50,34 +51,34 @@ class Docente {
     public int getExperiencia () { return this.experiencia; }
 
     public Docente() {
-        System.out.println("Digite el dni del nuevo docente: ");
+        System.out.print("Digite el dni del nuevo docente: ");
         String dni = sc.next();
         while (!setDni(dni)) {
-            System.out.println("Ese no es un dni válido, intente de nuevo: ");
+            System.out.print("Ese no es un dni válido, intente de nuevo: ");
             dni = sc.next();
         }
 
-        System.out.println("Digite los nombres del docente: ");
-        String nombres = sc.nextLine();
+        System.out.print("Digite los nombres del docente: ");
+        String nombres = sc.next();
         while (!setNombres(nombres)) {
-            System.out.println("Ese no es un nombre válido, intente de nuevo: ");
-            nombres = sc.nextLine();
+            System.out.print("Ese no es un nombre válido, intente de nuevo: ");
+            nombres = sc.next();
         }
 
-        System.out.println("Digite los apellidos del docente: ");
+        System.out.print("Digite los apellidos del docente: ");
         String apellidos = sc.nextLine();
         while (!setNombres(apellidos)) {
-            System.out.println("Ese no es un apellido válido, intente de nuevo: ");
+            System.out.print("Ese no es un apellido válido, intente de nuevo: ");
             apellidos = sc.nextLine();
         }
-        
-        System.out.println("Digite su especialidad: ");
+
+        System.out.print("Digite su especialidad: ");
         setEspecialidad(sc.nextLine());
         
-        System.out.println("Digite sus años de experiencia: ");
+        System.out.print("Digite sus años de experiencia: ");
         String experiencia = sc.next();
         while (!setExperiencia(experiencia)) {
-            System.out.println("Digite solo numeros enteros: ");
+            System.out.print("Digite solo numeros enteros: ");
             experiencia = sc.next();
         }
     }
