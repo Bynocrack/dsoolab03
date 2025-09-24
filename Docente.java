@@ -14,8 +14,24 @@ class Docente {
         return true;
     }
 
-    public void setNombres (String nombres) { this.nombres = nombres; }
-    public void setApellidos (String apellidos) { this.apellidos = apellidos; }
+    public boolean setNombres (String nombres) {
+        for (int i = 0; i < nombres.length(); i++) {
+            if(!(nombres.charAt(i)>='A' && nombres.charAt(i)<='Z') || !(nombres.charAt(i)>='a' && nombres.charAt(i)<='z') || nombres.charAt(i) == ' '){
+                return false;
+            }
+        }        
+        this.nombres = nombres;
+        return true;
+    }
+    public boolean setApellidos (String apellidos) { 
+        for (int i = 0; i < apellidos.length(); i++) {
+            if(!(apellidos.charAt(i)>='A' && apellidos.charAt(i)<='Z') || !(apellidos.charAt(i)>='a' && apellidos.charAt(i)<='z') || apellidos.charAt(i) == ' '){
+                return false;
+            }
+        }        
+        this.apellidos = apellidos;
+        return true;
+    }
     public void setEspecialidad (String especialidad) { this.especialidad = especialidad; }
     public boolean setExperiencia (String experiencia) {
         try {
@@ -42,9 +58,19 @@ class Docente {
         }
 
         System.out.println("Digite los nombres del docente: ");
-        setNombres(sc.next());
+        String nombres = sc.nextLine();
+        while (!setNombres(nombres)) {
+            System.out.println("Ese no es un nombre válido, intente de nuevo: ");
+            nombres = sc.nextLine();
+        }
+
         System.out.println("Digite los apellidos del docente: ");
-        setApellidos(sc.nextLine());
+        String apellidos = sc.nextLine();
+        while (!setNombres(apellidos)) {
+            System.out.println("Ese no es un apellido válido, intente de nuevo: ");
+            apellidos = sc.nextLine();
+        }
+        
         System.out.println("Digite su especialidad: ");
         setEspecialidad(sc.nextLine());
         
