@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class Docente {
+   // Declaramos las variables y sus tipos
     private Scanner sc = new Scanner(System.in);
     private String dni;
     private String nombres;
@@ -8,6 +9,7 @@ class Docente {
     private String especialidad;
     private int experiencia;
 
+    // Metodo set DNI, que a su vez valida que tenga una longitud de 8
     public boolean setDni (String dni) {
         if (dni.length() != 8) { return false; }
         this.dni = dni;
@@ -16,8 +18,8 @@ class Docente {
 
     public boolean setNombres (String nombres) {
         for (int i = 0; i < nombres.length(); i++) {
-            if((nombres.charAt(i)>='A' && nombres.charAt(i)<='Z') || (nombres.charAt(i)>='a' && nombres.charAt(i)<='z')){
-                System.out.print(nombres);
+	    char c = nombres.charAt(i);
+            if(!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')) {
                 return false;
             }
         }        
@@ -26,7 +28,8 @@ class Docente {
     }
     public boolean setApellidos (String apellidos) { 
         for (int i = 0; i < apellidos.length(); i++) {
-            if(!(apellidos.charAt(i)>='A' && apellidos.charAt(i)<='Z') || !(apellidos.charAt(i)>='a' && apellidos.charAt(i)<='z') || apellidos.charAt(i) == ' '){
+	   char c = apellidos.charAt(i);
+	   if(!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')) {
                 return false;
             }
         }        
@@ -57,12 +60,13 @@ class Docente {
             System.out.print("Ese no es un dni válido, intente de nuevo: ");
             dni = sc.next();
         }
+	sc.nextLine();
 
         System.out.print("Digite los nombres del docente: ");
-        String nombres = sc.next();
+        String nombres = sc.nextLine();
         while (!setNombres(nombres)) {
             System.out.print("Ese no es un nombre válido, intente de nuevo: ");
-            nombres = sc.next();
+            nombres = sc.nextLine();
         }
 
         System.out.print("Digite los apellidos del docente: ");
