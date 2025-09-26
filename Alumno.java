@@ -1,5 +1,5 @@
 import java.util.*;
-public class Alumnos {
+public class Alumno {
 
 // ================= ATRIBUTOS =================
     private String nombres;
@@ -11,7 +11,7 @@ public class Alumnos {
     private Scanner sc = new Scanner(System.in);
 
 // ================= CONSTRUCTOR =================
-    public Alumnos() {
+    public Alumno() {
 
         // Pedir y validar nombres
         System.out.print("Ingrese los nombres del alumno: ");
