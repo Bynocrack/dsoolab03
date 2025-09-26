@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Clase hecha Por Josue Madueño
 class Docente {
    // Declaramos las variables y sus tipos
     private Scanner sc = new Scanner(System.in);
